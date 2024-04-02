@@ -1,0 +1,84 @@
+﻿@model MVCClass.Models.DTO.DoctorDTO
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>DoctorDTO</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DoctorLastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DoctorLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DoctorLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Specialization, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WorkSchedule, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.WorkSchedule, GetTimeList(), "-- Select Time --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WorkSchedule, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 mt-3">
+                <input type="submit" value="Create" class="btn btn-primary btn-xs" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@* Helper method to generate a list of time options *@
+@functions {
+    public SelectList GetTimeList()
+    {
+        List<SelectListItem> timeList = new List<SelectListItem>();
+        DateTime startTime = DateTime.Today.AddHours(8); // Start time, change as needed
+        DateTime endTime = DateTime.Today.AddHours(18); // End time, change as needed
+
+        while (startTime <= endTime)
+        {
+            timeList.Add(new SelectListItem
+            {
+                Text = startTime.ToString("hh:mm tt"), // Format time as desired (e.g., 08:00 AM)
+                Value = startTime.ToString("HH:mm:ss") // Use HH:mm:ss format for backend processing
+            });
+            startTime = startTime.AddMinutes(30); // Increment by 30 minutes, adjust as needed
+        }
+
+        return new SelectList(timeList, "Value", "Text");
+    }
+}
+
+

@@ -12,7 +12,7 @@ namespace MVCClass.Controllers
     {
         // GET: Client
         private ClientDAO dao = new ClientDAO();
-
+        
         public ActionResult Index()
         {
             return View(dao.ReadClients());

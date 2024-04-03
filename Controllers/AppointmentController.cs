@@ -30,7 +30,7 @@ namespace MVCClass.Controllers
 
             ViewBag.ClientsList = new SelectList(clientsList, "Id", "ClientName"); // Assuming Id and ClientName are properties of your Client entity
 
-
+            
             var doctorsList = doctorDAO.ReadDoctors();
 
             ViewBag.DoctorsList = new SelectList(doctorsList, "Id", "DoctorName");
@@ -96,9 +96,9 @@ namespace MVCClass.Controllers
         [HttpPost]
         public ActionResult Edit(int id, AppointmentDTO appointment)
         {
-            try
-            {
-                // TODO: Add update logic here
+                try
+                {
+                    // TODO: Add update logic here
                 dao.UpdateAppointment(id, appointment);
 
                 return RedirectToAction("Index");

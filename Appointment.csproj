@@ -182,6 +182,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -191,9 +192,11 @@
     <Compile Include="Models\DAO\AppointmentDAO.cs" />
     <Compile Include="Models\DAO\ClientDAO.cs" />
     <Compile Include="Models\DAO\DoctorDAO.cs" />
+    <Compile Include="Models\DAO\AuthenticationDAO.cs" />
     <Compile Include="Models\DTO\AppointmentDTO.cs" />
     <Compile Include="Models\DTO\ClientDTO.cs" />
     <Compile Include="Models\DTO\DoctorDTO.cs" />
+    <Compile Include="Models\DTO\UserDTO.cs" />
     <Compile Include="Models\SecurityConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -266,6 +269,9 @@
     <Content Include="Views\Shared\ErrorTime.cshtml" />
     <Content Include="Views\Appointment\Create.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Authentication\Index.cshtml" />
+    <Content Include="Views\Authentication\LoginSuccess.cshtml" />
+    <Content Include="Views\Authentication\LoginFailure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

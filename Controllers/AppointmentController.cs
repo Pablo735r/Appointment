@@ -71,7 +71,7 @@ namespace MVCClass.Controllers
                     //return View("ErrorTime");
                 //}
                 //else
-                //{
+                //{ this function its for validate the time between hours in appointments 
                    
                     dao.CreateAppointment(appointment);
 

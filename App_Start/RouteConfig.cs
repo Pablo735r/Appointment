@@ -17,6 +17,7 @@ namespace MVCClass
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Client", action = "Index", id = UrlParameter.Optional }
+            //change the route to authentication 
             );
         }
     }
